@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,8 +17,6 @@ import lk.ijse.dep13.fx.util.AppRouter;
 import java.io.*;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainController {
     public MenuBar mnBar;
@@ -38,7 +34,6 @@ public class MainController {
 
     private File currentFile;
     private final SimpleBooleanProperty updateValue = new SimpleBooleanProperty(false);
-    private int occurrenceCount = 0;
 
     public void initialize() {
         updateValue.addListener((observable, oldValue, newValue) -> {
@@ -78,7 +73,7 @@ public class MainController {
         if (updateValue.get() && !txtArea.getText().isEmpty()){
             if (showConfirmationAlert("Confirmation","Do you want to create a new text file?")){
                 txtArea.clear();
-                setTitle("Text Editor - New Document");
+                setTitle("SwiftEdit - New Document");
                 updateValue.set(false);
             } else txtArea.requestFocus();
         }
@@ -98,7 +93,7 @@ public class MainController {
                     if (showConfirmationAlert("Confirmation","Do you want to replace textArea with this file?")){
                         txtArea.clear();
                         txtArea.setText(txtArea.getText() + text);
-                        setTitle("Text Editor - " + file.getName());
+                        setTitle("SwiftEdit - " + file.getName());
                     } else return;
                 } else txtArea.setText(txtArea.getText() + text);
             fis.close();
@@ -112,13 +107,13 @@ public class MainController {
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File (*.txt)", "*.txt"));
             currentFile = fileChooser.showSaveDialog(root.getScene().getWindow());
             if (!currentFile.getName().endsWith(".txt")) currentFile = new File(currentFile.getAbsolutePath() + ".txt");
-            setTitle("Text Editor - " + currentFile.getName());
+            setTitle("SwiftEdit - " + currentFile.getName());
         }
         saveFile(currentFile);
         updateValue.set(false);
     }
 
-    private void saveFile(File file) throws IOException {
+    private void saveFile(File file) {
         try (FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(txtArea.getText().getBytes());
             fos.close();
@@ -136,10 +131,10 @@ public class MainController {
             File file = fileChooser.showSaveDialog(root.getScene().getWindow());
             if (!file.getName().endsWith(".txt")) file = new File(file.getAbsolutePath() + ".txt");
             saveFile(file);
-            if (currentFile == null) {
+            if (currentFile != null) {
                 currentFile = file;
                 updateValue.set(false);
-                setTitle("Text Editor - " + currentFile.getName());
+                setTitle("SwiftEdit - " + currentFile.getName());
             }
         }
     }

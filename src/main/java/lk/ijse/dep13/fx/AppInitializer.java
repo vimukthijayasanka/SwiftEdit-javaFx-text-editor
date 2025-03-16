@@ -18,7 +18,7 @@ public class AppInitializer extends Application {
         Scene scene = new Scene(AppRouter.getContainer(AppRouter.Routes.MAIN));
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
-        primaryStage.setTitle("JAVA-FX Text Editor");
+        primaryStage.setTitle("SWIFTEDIT");
         primaryStage.show();
     }
 }
