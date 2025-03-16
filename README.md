@@ -1,7 +1,5 @@
 # SwiftEdit
 
-
-
 ### A powerful and efficient text editor with advanced search capabilities.
 
 ## 🚀 Features
@@ -14,7 +12,7 @@
 
 - **Drag & Drop Support** - Open text files by dragging them into the editor.
 
-- **Customizable Appearance** - Personalize fonts, colors, and themes.
+- **Customizable Appearance** - Personalize fonts, font size and themes with options for bold, italic, and underline styles.
 
 ## 🛠️ Installation
 
@@ -40,7 +38,11 @@
 
 ## 📸 Screenshots
 
+### 1. Main UI of the SwiftEdit
+![Main UI of the SwiftEdit](./src/main/resources/img/Screenshot from 2025-03-16 18-15-13.png)
 
+### 2. About window of the SwiftEdit
+![About Window of the SwiftEdit](./src/main/resources/img/Screenshot%20from%202025-03-16%2018-15-53.png)
 
 ## 📜 Usage
 
