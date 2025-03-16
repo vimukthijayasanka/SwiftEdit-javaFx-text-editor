@@ -136,8 +136,15 @@ public class MainController {
             fileChooser.setTitle("Save Text File");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text File (*.txt)", "*.txt"));
             currentFile = fileChooser.showSaveDialog(root.getScene().getWindow());
-            if (!currentFile.getName().endsWith(".txt")) currentFile = new File(currentFile.getAbsolutePath() + ".txt");
-            setTitle("SwiftEdit - " + currentFile.getName());
+
+            if (currentFile != null) {
+                if (!currentFile.getName().endsWith(".txt")) {
+                    currentFile = new File(currentFile.getAbsolutePath() + ".txt");
+                }
+                setTitle("SwiftEdit - " + currentFile.getName());
+            } else {
+                return;
+            }
         }
         saveFile(currentFile);
         updateValue.set(false);
