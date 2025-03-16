@@ -39,7 +39,7 @@
 ## 📸 Screenshots
 
 ### 1. Main UI of the SwiftEdit
-![Main UI of the SwiftEdit](./src/main/resources/img/Screenshot from 2025-03-16 18-15-13.png)
+![Main UI of the SwiftEdit](./src/main/resources/img/Screenshot%20from%202025-03-16%2018-15-13.png)
 
 ### 2. About window of the SwiftEdit
 ![About Window of the SwiftEdit](./src/main/resources/img/Screenshot%20from%202025-03-16%2018-15-53.png)
@@ -64,6 +64,9 @@ Contributions are welcome! To contribute:
 3. Commit your changes (`git commit -m 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
+
+## 🏷️ Version
+1.0.0
 
 ## 📄 License
 
