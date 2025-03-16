@@ -11,10 +11,10 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
    <children>
       <TextArea fx:id="txtArea" layoutX="23.0" layoutY="45.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="335.0" prefWidth="556.0" />
-      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="358.0">
+      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="357.0">
         <menus>
           <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
             <items>
@@ -23,10 +23,19 @@
                         <KeyCodeCombination alt="UP" code="N" control="ANY" meta="UP" shift="ANY" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
-                  <MenuItem fx:id="mnItemOpen" onAction="#mnItemOpenOnAction" text="Open" />
-                  <MenuItem fx:id="mnItemSave" onAction="#mnItemSaveOnAction" text="Save" />
+                  <MenuItem fx:id="mnItemOpen" onAction="#mnItemOpenOnAction" text="Open">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="ANY" meta="UP" shift="ANY" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="mnItemSave" onAction="#mnItemSaveOnAction" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
                   <MenuItem fx:id="mnItemSaveAs" onAction="#mnItemSaveAsOnAction" text="Save As" />
-                  <MenuItem fx:id="mnItemExit" onAction="#mnItemExitOnAction" text="Exit" />
+                  <MenuItem fx:id="mnItemExit" onAction="#mnItemExitOnAction" text="Exit">
+                     <accelerator>
+                        <KeyCodeCombination alt="ANY" code="F10" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -42,11 +51,11 @@
         </menus>
       </MenuBar>
       <TextField fx:id="txtSearch" layoutX="417.0" layoutY="15.0" onAction="#txtSearchOnAction" promptText="Search here !" />
-      <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="388.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="383.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/search_10023966.png" />
          </image>
       </ImageView>
-      <Spinner fx:id="spnrSearch" layoutX="554.0" layoutY="15.0" prefHeight="26.0" prefWidth="25.0" />
+      <Spinner fx:id="spnrSearch" layoutX="552.0" layoutY="15.0" prefHeight="26.0" prefWidth="27.0" />
    </children>
 </AnchorPane>
