@@ -18,8 +18,8 @@
 
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
    <children>
-      <TextArea fx:id="txtArea" layoutX="23.0" layoutY="78.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="302.0" prefWidth="556.0" />
-      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0">
+      <TextArea fx:id="txtArea" layoutX="23.0" layoutY="78.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="296.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
+      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="10.0">
         <menus>
           <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
             <items>
@@ -57,14 +57,14 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField fx:id="txtSearch" layoutX="417.0" layoutY="15.0" onAction="#txtSearchOnAction" promptText="Search here !" />
-      <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="383.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="txtSearch" layoutX="417.0" layoutY="15.0" onAction="#txtSearchOnAction" promptText="Search here !" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+      <ImageView fitHeight="27.0" fitWidth="28.0" layoutX="383.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="10.0">
          <image>
             <Image url="@../img/search_10023966.png" />
          </image>
       </ImageView>
-      <Spinner fx:id="spnrSearch" layoutX="552.0" layoutY="15.0" prefHeight="26.0" prefWidth="27.0" />
-      <HBox layoutX="23.0" layoutY="48.0" prefHeight="27.0" prefWidth="556.0" spacing="10.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="48.0">
+      <Spinner fx:id="spnrSearch" layoutX="552.0" layoutY="15.0" prefHeight="26.0" prefWidth="27.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+      <HBox layoutX="20.0" layoutY="45.0" prefHeight="27.0" prefWidth="556.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="45.0">
          <children>
             <ToggleButton fx:id="tglbtnBold" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" text="B">
                <font>
