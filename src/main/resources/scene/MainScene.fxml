@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
    <children>
-      <TextArea fx:id="txtArea" layoutX="23.0" layoutY="45.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="335.0" prefWidth="556.0" />
-      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="357.0">
+      <TextArea fx:id="txtArea" layoutX="23.0" layoutY="78.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="302.0" prefWidth="556.0" />
+      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0">
         <menus>
           <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
             <items>
@@ -39,9 +44,11 @@
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
+               <items>
+                  <CheckMenuItem fx:id="chkmnItemBold" mnemonicParsing="false" text="Bold" />
+                  <CheckMenuItem fx:id="chkmnItemItalic" mnemonicParsing="false" text="Italic" />
+                  <CheckMenuItem fx:id="chkmnItemUnderline" mnemonicParsing="false" text="Underline" />
+               </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
@@ -57,5 +64,22 @@
          </image>
       </ImageView>
       <Spinner fx:id="spnrSearch" layoutX="552.0" layoutY="15.0" prefHeight="26.0" prefWidth="27.0" />
+      <HBox layoutX="23.0" layoutY="48.0" prefHeight="27.0" prefWidth="556.0" spacing="10.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="48.0">
+         <children>
+            <ToggleButton fx:id="tglbtnBold" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" text="B">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="tglbtnItalic" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" text="I">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="tglbtnUnderline" layoutX="47.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" text="U" underline="true" />
+            <ComboBox fx:id="cmbBoxFont" prefWidth="150.0" promptText="Select Font" />
+            <ComboBox fx:id="cmbFontSize" layoutX="120.0" layoutY="10.0" prefHeight="26.0" prefWidth="74.0" promptText="size" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
