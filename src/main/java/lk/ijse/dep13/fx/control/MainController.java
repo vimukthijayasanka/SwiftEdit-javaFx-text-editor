@@ -2,11 +2,14 @@ package lk.ijse.dep13.fx.control;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,6 +34,14 @@ public class MainController {
     public MenuItem mnItemAbout;
     public TextField txtSearch;
     public Spinner spnrSearch;
+    public ComboBox cmbBoxFont;
+    public ToggleButton tglbtnBold;
+    public ToggleButton tglbtnItalic;
+    public ToggleButton tglbtnUnderline;
+    public CheckMenuItem chkmnItemBold;
+    public CheckMenuItem chkmnItemItalic;
+    public CheckMenuItem chkmnItemUnderline;
+    public ComboBox cmbFontSize;
 
     private File currentFile;
     private final SimpleBooleanProperty updateValue = new SimpleBooleanProperty(false);
@@ -47,6 +58,25 @@ public class MainController {
         txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
            updateValue.set(true);
         });
+
+        chkmnItemBold.selectedProperty().bindBidirectional(tglbtnBold.selectedProperty());
+        chkmnItemItalic.selectedProperty().bindBidirectional(tglbtnItalic.selectedProperty());
+        chkmnItemUnderline.selectedProperty().bindBidirectional(tglbtnUnderline.selectedProperty());
+
+        ChangeListener subscriber = (observable, oldValue, newValue) -> {fontChanger();};
+        tglbtnBold.selectedProperty().addListener(subscriber);
+        tglbtnItalic.selectedProperty().addListener(subscriber);
+        tglbtnUnderline.selectedProperty().addListener(subscriber);
+        cmbFontSize.valueProperty().addListener(subscriber);
+        cmbBoxFont.valueProperty().addListener(subscriber);
+
+        cmbBoxFont.setItems(FXCollections.observableArrayList(Font.getFamilies()));
+        cmbBoxFont.getSelectionModel().select("System");
+
+        cmbFontSize.setItems(FXCollections.observableArrayList(
+                "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30", "32", "36", "40", "48", "56", "64", "72"
+        ));
+        cmbFontSize.getSelectionModel().select("12");
 
         Platform.runLater(() -> {
             Stage stage = (Stage) root.getScene().getWindow();
@@ -211,5 +241,23 @@ public class MainController {
         int count = textSearch.getOccurrenceCount();
 
         new Alert(Alert.AlertType.INFORMATION,"found " + count + " words", ButtonType.OK).show();
+    }
+
+    public void fontChanger() {
+        String selectedFont = (String) cmbBoxFont.getSelectionModel().getSelectedItem();
+        String selectedSize = (String) cmbFontSize.getSelectionModel().getSelectedItem();
+
+        if (selectedFont == null) selectedFont = "System"; // Default font
+        if (selectedSize == null) selectedSize = "12"; // Default size
+
+        double fontSize = Double.parseDouble(selectedSize);
+
+        // Apply font and styles to selected text
+        txtArea.setStyle("%s; %s; %s; -fx-font-family: '%s'; -fx-font-size: %dpx;".formatted(
+                chkmnItemBold.isSelected() ? "-fx-font-weight: bold" : "-fx-font-weight: normal",
+                chkmnItemItalic.isSelected() ? "-fx-font-style: italic" : "-fx-font-style: normal",
+                chkmnItemUnderline.isSelected() ? "-fx-underline: true" : "-fx-underline: false",
+                selectedFont, (int) fontSize
+        ));
     }
 }
