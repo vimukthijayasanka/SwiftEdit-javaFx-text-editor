@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -16,38 +17,86 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/MainScene.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
    <children>
       <TextArea fx:id="txtArea" layoutX="23.0" layoutY="78.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="296.0" prefWidth="560.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
       <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="350.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="10.0">
         <menus>
           <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="mnItemNew" onAction="#mnItemNewOnAction" text="New">
+              <MenuItem fx:id="mnItemNew" mnemonicParsing="false" onAction="#mnItemNewOnAction" text="New">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="N" control="ANY" meta="UP" shift="ANY" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/file_12478197.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </MenuItem>
-                  <MenuItem fx:id="mnItemOpen" onAction="#mnItemOpenOnAction" text="Open">
+                  <MenuItem fx:id="mnItemOpen" mnemonicParsing="false" onAction="#mnItemOpenOnAction" text="Open">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="ANY" meta="UP" shift="ANY" shortcut="UP" />
-                     </accelerator></MenuItem>
-                  <MenuItem fx:id="mnItemSave" onAction="#mnItemSaveOnAction" text="Save">
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/inbox_725666.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="mnItemSave" mnemonicParsing="false" onAction="#mnItemSaveOnAction" text="Save">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
-                  <MenuItem fx:id="mnItemSaveAs" onAction="#mnItemSaveAsOnAction" text="Save As" />
-                  <MenuItem fx:id="mnItemExit" onAction="#mnItemExitOnAction" text="Exit">
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/file_14572753.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem fx:id="mnItemSaveAs" mnemonicParsing="false" onAction="#mnItemSaveAsOnAction" text="Save As">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/folder_12478255.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <accelerator>
-                        <KeyCodeCombination alt="ANY" code="F10" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator></MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="mnItemExit" mnemonicParsing="false" onAction="#mnItemExitOnAction" text="Exit">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="F10" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icon/file_12478279.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
                <items>
-                  <CheckMenuItem fx:id="chkmnItemBold" mnemonicParsing="false" text="Bold" />
-                  <CheckMenuItem fx:id="chkmnItemItalic" mnemonicParsing="false" text="Italic" />
-                  <CheckMenuItem fx:id="chkmnItemUnderline" mnemonicParsing="false" text="Underline" />
+                  <CheckMenuItem fx:id="chkmnItemBold" mnemonicParsing="false" text="Bold">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="B" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
+                  <CheckMenuItem fx:id="chkmnItemItalic" mnemonicParsing="false" text="Italic">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="I" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
+                  <CheckMenuItem fx:id="chkmnItemUnderline" mnemonicParsing="false" text="Underline">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="U" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></CheckMenuItem>
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
