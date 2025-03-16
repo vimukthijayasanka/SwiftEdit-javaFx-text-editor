@@ -3,14 +3,18 @@ package lk.ijse.dep13.fx.control;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dep13.fx.TextSearch;
+import lk.ijse.dep13.fx.util.AppRouter;
 
 import java.io.*;
 import java.util.List;
@@ -183,7 +187,14 @@ public class MainController {
         return alert.showAndWait().get() == ButtonType.OK;
     }
 
-    public void mnItemAboutOnAction(ActionEvent actionEvent) {
+    public void mnItemAboutOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage(StageStyle.UTILITY);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.centerOnScreen();
+        stage.resizableProperty().setValue(false);
+        Scene scene = new Scene(AppRouter.getContainer(AppRouter.Routes.ABOUT));
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
