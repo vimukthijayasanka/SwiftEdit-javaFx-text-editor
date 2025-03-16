@@ -1,0 +1,13 @@
+#mnBar {
+    -fx-font-family: "Poppins", sans-serif;
+}
+
+#txtArea {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
