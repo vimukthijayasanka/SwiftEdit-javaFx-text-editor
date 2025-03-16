@@ -65,6 +65,9 @@ Contributions are welcome! To contribute:
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
 
+## 🏷️ Version
+1.0.0
+
 ## 📄 License
 
 MIT License. See [LICENSE](license.txt) for details.
