@@ -6,12 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lk.ijse.dep13.fx.TextSearch;
 
 import java.io.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainController {
     public MenuBar mnBar;
@@ -23,9 +28,13 @@ public class MainController {
     public MenuItem mnItemExit;
     public AnchorPane root;
     public TextArea txtArea;
+    public MenuItem mnItemAbout;
+    public TextField txtSearch;
+    public Spinner spnrSearch;
 
     private File currentFile;
     private final SimpleBooleanProperty updateValue = new SimpleBooleanProperty(false);
+    private int occurrenceCount = 0;
 
     public void initialize() {
         updateValue.addListener((observable, oldValue, newValue) -> {
@@ -172,5 +181,29 @@ public class MainController {
         alert.setHeaderText(headerText);
         alert.getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
         return alert.showAndWait().get() == ButtonType.OK;
+    }
+
+    public void mnItemAboutOnAction(ActionEvent actionEvent) {
+    }
+
+    public void txtSearchOnAction(ActionEvent actionEvent) {
+        String searchText = txtSearch.getText().trim();
+        String textAreaContent = txtArea.getText();
+
+        if (textAreaContent.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Text area is empty, nothing to search", ButtonType.OK).show();
+            return;
+        }
+        if (searchText.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please enter a search term", ButtonType.OK).show();
+            return;
+        }
+        TextSearch textSearch = new TextSearch(txtArea, spnrSearch);
+
+        textSearch.search(txtSearch.getText());
+
+        int count = textSearch.getOccurrenceCount();
+
+        new Alert(Alert.AlertType.INFORMATION,"found " + count + " words", ButtonType.OK).show();
     }
 }

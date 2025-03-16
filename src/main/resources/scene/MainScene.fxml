@@ -3,14 +3,18 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep13.fx.control.MainController">
    <children>
       <TextArea fx:id="txtArea" layoutX="23.0" layoutY="45.0" onDragDropped="#txtAreaOnDragDropped" onDragOver="#txtAreaOnDragOver" prefHeight="335.0" prefWidth="556.0" />
-      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="556.0">
+      <MenuBar fx:id="mnBar" layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="358.0">
         <menus>
           <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
             <items>
@@ -32,10 +36,17 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="mnItemAbout" mnemonicParsing="false" onAction="#mnItemAboutOnAction" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
+      <TextField fx:id="txtSearch" layoutX="417.0" layoutY="15.0" onAction="#txtSearchOnAction" promptText="Search here !" />
+      <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="388.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search_10023966.png" />
+         </image>
+      </ImageView>
+      <Spinner fx:id="spnrSearch" layoutX="554.0" layoutY="15.0" prefHeight="26.0" prefWidth="25.0" />
    </children>
 </AnchorPane>
